@@ -1,13 +1,13 @@
-package com.locadora.manager;
+package com.locadora.gestor;
 
 import com.locadora.model.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocadoraManager {
+public class LocadoraGestor {
     private List<Veiculo> veiculos;
 
-    public LocadoraManager() {
+    public LocadoraGestor() {
         this.veiculos = new ArrayList<>();
     }
 

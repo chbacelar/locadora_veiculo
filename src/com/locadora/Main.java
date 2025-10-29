@@ -1,6 +1,6 @@
 package com.locadora;
 
-import com.locadora.manager.LocadoraManager;
+import com.locadora.gestor.LocadoraGestor;
 import com.locadora.model.Carro;
 import com.locadora.model.Moto;
 import com.locadora.model.Veiculo;
@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 public class Main {
-    private static LocadoraManager manager = new LocadoraManager();
+    private static LocadoraGestor gestor = new LocadoraGestor();
 
     public static void main(String[] args) {
         boolean continuar = true;
@@ -75,7 +75,7 @@ public class Main {
         String[] tipos = {"Carro", "Moto"};
         String tipo = (String) JOptionPane.showInputDialog(null,
                 "Selecione o tipo de veículo:",
-                "Tipo de Veículo",
+                "Tipo de Ve \"Selecione o tipo de veículículo",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 tipos,
@@ -137,7 +137,7 @@ public class Main {
                         cilindradas, tipoPartida);
             }
 
-            manager.adicionarVeiculo(veiculo);
+            gestor.adicionarVeiculo(veiculo);
             JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
@@ -151,7 +151,7 @@ public class Main {
     }
 
     private static void listarTodosVeiculos() {
-        List<Veiculo> veiculos = manager.listarTodos();
+        List<Veiculo> veiculos = gestor.listarTodos();
 
         if (veiculos.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nenhum veículo cadastrado!",
@@ -172,7 +172,7 @@ public class Main {
         String placa = JOptionPane.showInputDialog("Digite a placa do veículo:");
         if (placa == null || placa.trim().isEmpty()) return;
 
-        Veiculo veiculo = manager.buscarPorPlaca(placa);
+        Veiculo veiculo = gestor.buscarPorPlaca(placa);
 
         if (veiculo == null) {
             JOptionPane.showMessageDialog(null, "Veículo não encontrado!",
@@ -187,7 +187,7 @@ public class Main {
         String placa = JOptionPane.showInputDialog("Digite a placa do veículo a atualizar:");
         if (placa == null || placa.trim().isEmpty()) return;
 
-        Veiculo veiculoExistente = manager.buscarPorPlaca(placa);
+        Veiculo veiculoExistente = gestor.buscarPorPlaca(placa);
 
         if (veiculoExistente == null) {
             JOptionPane.showMessageDialog(null, "Veículo não encontrado!",
@@ -235,7 +235,7 @@ public class Main {
                 JOptionPane.YES_NO_OPTION);
 
         if (confirmacao == JOptionPane.YES_OPTION) {
-            if (manager.removerVeiculo(placa)) {
+            if (gestor.removerVeiculo(placa)) {
                 JOptionPane.showMessageDialog(null, "Veículo removido com sucesso!",
                         "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -249,7 +249,7 @@ public class Main {
         String placa = JOptionPane.showInputDialog("Digite a placa do veículo a alugar:");
         if (placa == null || placa.trim().isEmpty()) return;
 
-        if (manager.alugarVeiculo(placa)) {
+        if (gestor.alugarVeiculo(placa)) {
             JOptionPane.showMessageDialog(null, "Veículo alugado com sucesso!",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -263,7 +263,7 @@ public class Main {
         String placa = JOptionPane.showInputDialog("Digite a placa do veículo a devolver:");
         if (placa == null || placa.trim().isEmpty()) return;
 
-        if (manager.devolverVeiculo(placa)) {
+        if (gestor.devolverVeiculo(placa)) {
             JOptionPane.showMessageDialog(null, "Veículo devolvido com sucesso!",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -274,7 +274,7 @@ public class Main {
     }
 
     private static void listarVeiculosDisponiveis() {
-        List<Veiculo> veiculos = manager.listarDisponiveis();
+        List<Veiculo> veiculos = gestor.listarDisponiveis();
 
         if (veiculos.isEmpty()) {
             JOptionPane.showMessageDialog(null,
