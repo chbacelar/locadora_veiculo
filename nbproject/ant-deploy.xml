@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="-deploy-ant" basedir=".">
+    <target name="-init">
+        <property name="deploy.ant.enabled" value="true"/>
+    </target>
+
+    <target name="-deploy-ant" depends="-init">
+        <!-- Empty placeholder for deployment tasks -->
+    </target>
+</project>

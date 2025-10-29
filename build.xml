@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="locadora_veiculo" default="default" basedir=".">
+    <description>Sistema de Locadora de Veículos</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <!-- Customization area -->
+    <!-- You can override any target from nbproject/build-impl.xml here -->
+
+</project>
